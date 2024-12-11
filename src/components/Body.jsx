@@ -18,7 +18,8 @@ const Body = () => {
         bgcolor :"#f5f5f5"
     }} >
         <Typography component='p' variant="body1" sx={{
-            fontSize: "1.5rem"
+            fontSize: {xs:'0,9 rem',sm:"1 rem", md:"1.5rem"},
+            textAlign: 'center'
         }}>
         Discover, Cook, Savor - Your Next Favorite Recipe Awaits!
         </Typography>

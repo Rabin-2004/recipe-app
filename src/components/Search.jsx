@@ -13,7 +13,8 @@ const Search = ({search, setSearch}) => {
   return (
     <div>
         <form  onSubmit={(e) => handleSubmit(e)}>
-        <TextField fullWidth label="Search for recipes" id="fullWidth" sx={{width: "30vw"}} 
+        <TextField fullWidth label="Search for recipes" id="fullWidth" sx={{
+          width:{md:"30vw", }}} 
         InputProps={{
             endAdornment: (
                 <InputAdornment position="end">

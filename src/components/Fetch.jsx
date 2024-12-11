@@ -38,7 +38,7 @@ const Fetch = () => {
       {foodData && foodData.length > 0 ? (
         <Data />
       ) : (
-        <p>No results found.</p>
+        <p>Loading....</p>
       )}
     </div>
   );

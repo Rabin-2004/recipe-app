@@ -1,44 +1,48 @@
-import React from 'react'
-import { Card, CardActions, CardContent, Button, Typography, CardMedia,Box } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Card, CardActions, CardContent, Button, Typography, CardMedia, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const FoodData = ({meal}) => {
+const FoodData = ({ meal }) => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    function handleClick(){
-        navigate(`/recipe-detail?query=${meal.idMeal}`, {state: {meal} })
-    }
+  function handleClick() {
+    navigate(`/recipe-detail?query=${meal.idMeal}`, { state: { meal } });
+  }
 
   return (
-    <Box component="div" sx={{
-        display: "flex",
-        flexDirection:"columns"
-    }}>
+    <Grid spacing={2} justifyContent="center" sx={{ padding: 2, width : '100%' }} >
+      <Grid item xs={12} sm={6} md={2} lg={1}>
+        <Card sx={{
+          width: '30vw', 
+          height: '60vh',
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
+          <CardMedia
+            sx={{ 
+              height: { xs: '200px', sm: '250px', md: '300px' },
+              objectFit: 'cover',
+            }}
+            image={meal.strMealThumb}
+            title={meal.strMeal}
+          />
 
-    <Card sx={{ 
-        width: "25vw",
-    }}>
-        <CardMedia sx={{height: "45vh"}} image={meal.strMealThumb} title={meal.strMeal}/>
-
-        <CardContent>
+          <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="div">
-             {meal.strMeal}
+              {meal.strMeal}
             </Typography>
-
-            <Typography variant='body2' sx={{color: 'text.secondary'}}>
-            Type: {meal.strArea} {meal.strCategory} Dish
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              Type: {meal.strArea} {meal.strCategory} Dish
             </Typography>
-        </CardContent>
+          </CardContent>
 
-        <CardActions>
-            <Button size='small' onClick={handleClick}> View Recipe </Button>
-        </CardActions>
+          <CardActions>
+            <Button size="small" onClick={handleClick}>View Recipe</Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Grid>
+  );
+};
 
-    </Card>
-
-    </Box>
-  )
-}
-
-export default FoodData
+export default FoodData;
